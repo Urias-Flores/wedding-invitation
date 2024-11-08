@@ -43,7 +43,7 @@ function App() {
         </section>
 
         <section>
-          <h2 className="wedding-date">05 Abril 2024</h2>
+          <h2 className="wedding-date">05 Abril 2025</h2>
 
           <h3 className="our-parents">Nuestro padres</h3>
 
@@ -63,16 +63,18 @@ function App() {
         <section>
           <div>
             <h3>Ceremonia</h3>
-
             <p>Orillas de la playa, Tela, Atlantida</p>
             <p>05:00 PM</p>
+
           </div>
 
           <div>
-            <h3>Recepcion</h3>
+            <h3>Recepción</h3>
 
             <p>Cabaña contiguo a Hotel XXXXXX, Tela, Atlantida</p>
             <p>08:00 PM</p>
+
+            
           </div>
         </section>
 
@@ -102,10 +104,6 @@ function App() {
             </div>
           </form>
         </section>
-
-        <footer>
-          <p>Copyright 2024.</p>
-        </footer>
       </main>
     </>
   )

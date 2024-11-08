@@ -35,7 +35,7 @@ section{
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 /* ---------------------- First Section -------------------------------------------- */
@@ -131,3 +131,14 @@ section{
 .parents__name{
   padding: .8rem 0;
 }
+/* --------------------------------------------------------------------------------- */
+
+/* ---------------------- Thrid Section -------------------------------------------- */
+.map{
+  margin-top: 1rem;
+  width: 100%;
+  height: 15rem;
+  border: 2px solid var(--champagne);
+  border-radius: 1rem;
+}
+/* --------------------------------------------------------------------------------- */
