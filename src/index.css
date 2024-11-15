@@ -22,7 +22,11 @@ h1, h2, h3, h4, h5, p{
 }
 
 /* General desing */
-main{
+html{
+  overflow: hidden;
+}
+
+body{
   height: 100vh;
   padding: 0 1.5rem;
   overflow-y: scroll;
@@ -31,12 +35,13 @@ main{
 }
 
 section{
-  height: 100vh;
+  height: calc(100vh - 8rem);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+  padding: 3rem 1rem 5rem 1rem;
 }
 
 /* ---------------------- First Section -------------------------------------------- */

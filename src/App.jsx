@@ -36,7 +36,7 @@ function App() {
 
   return (
     
-    <main>
+    <>
       { (!state || state === 'normal') &&
         <Card confirmAssist={confirmAssist}></Card>
       }
@@ -44,8 +44,7 @@ function App() {
       { state === 'edit' && 
         <Invitations />
       }
-      
-    </main>
+    </>
   )
 }
 
