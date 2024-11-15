@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #f5ca84;
-  background-color: #ffffff;
+  background-color: #30303f;
 
   --champagne: #f5ca84;
   --white: #fff;
@@ -35,7 +35,8 @@ section{
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 3rem;
 }
 
 /* ---------------------- First Section -------------------------------------------- */
@@ -134,11 +135,111 @@ section{
 /* --------------------------------------------------------------------------------- */
 
 /* ---------------------- Thrid Section -------------------------------------------- */
+.activities{
+  color: var(--white);
+}
+
+.activity__name{
+  font-family: 'Merriweather', sans-serif;
+  font-size: 1.8rem;
+  color: var(--champagne);
+}
+
+.activity__place{
+  font-size: 1.2rem;
+}
+
+.activity__time{
+  font-size: 1.2rem;
+  border: 2px solid var(--champagne);
+  width: fit-content;
+  margin: .4rem auto 0 auto;
+  padding: .5rem;
+}
+
+
 .map{
   margin-top: 1rem;
   width: 100%;
   height: 15rem;
   border: 2px solid var(--champagne);
   border-radius: 1rem;
+}
+/* --------------------------------------------------------------------------------- */
+
+/* ---------------------- Fourth Section ------------------------------------------- */
+.invitation{
+  color: var(--white);
+}
+
+.invitation__title{
+  font-family: "Imperial Script", sans-serif;
+  color: var(--champagne);
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  height: calc(fit-content + 2rem);
+}
+
+.invitation__title span:nth-child(1){
+  margin-top: -2rem;
+}
+
+.invitation__title span:nth-child(3){
+  margin-top: 2rem;
+}
+
+.invitation__passestext{
+  font-family: 'Merriweather', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.passes{
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.pass__item{
+  border: 1px solid var(--champagne);
+  padding: .7rem;
+  width: 5rem;
+}
+
+.pass__image{
+  width: 3rem;
+}
+
+.pass__name{
+  font-size: 1.4rem;
+}
+
+.pass__number{
+  font-size: 1.2rem;
+  background-color: var(--champagne);
+  font-weight: bold;
+  margin-top: .8rem;
+}
+
+.assist{
+  margin-top: 2rem;
+}
+
+.assist__title{
+  font-size: 1.7rem;
+}
+
+.assist__text{
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.confirmbutton{
+  font-size: 1.4rem;
+  background-color: var(--champagne);
+  border: none;
+  padding: .5rem 1rem;
+  margin-top: 2rem;
 }
 /* --------------------------------------------------------------------------------- */

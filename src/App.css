@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 520px;
   margin: 0 auto;
   text-align: center;
   height: 100vh;
@@ -7,4 +7,13 @@
 
 body{
   margin: 0;
+}
+
+main{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+main::-webkit-scrollbar{
+  display: none;
 }
