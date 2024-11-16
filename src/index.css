@@ -7,8 +7,14 @@
   color: #f5ca84;
   background-color: #30303f;
 
+
   --champagne: #f5ca84;
   --white: #fff;
+  --gray: rgb(107 114 128);
+  --light-gray: rgb(156 163 175);
+  --red: rgb(220 38 38);
+  --blue: rgb(29 78 216);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,6 +38,10 @@ body{
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+}
+
+main{
+  padding: 1rem;
 }
 
 section{
