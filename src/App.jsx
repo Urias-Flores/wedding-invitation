@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      { (code === null || Object.keys(invitation).length === 0 && state !== 'edit') &&
+      { ((code === null || Object.keys(invitation).length === 0) && state !== 'edit') &&
         <InvitationNotFound />
       }
 
