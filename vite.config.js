@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://wedding-invitation-51gl.onrender.com/api",
+        target: "https://wedding-invitation-51gl.onrender.com",
         changeOrigin: true,
       },
     },
