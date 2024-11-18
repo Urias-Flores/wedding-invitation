@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://wedding-invitation-yufd.onrender.com/",
+        target: "http://147.182.185.153:10000",
         changeOrigin: true,
       },
     },
