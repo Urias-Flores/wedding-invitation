@@ -8,6 +8,7 @@
     "server": "node server/server.cjs",
     "start": "npm-run-all --parallel dev server",
     "build": "vite build",
+    "start:net": "npm-run-all --parallel dev server",
     "lint": "eslint .",
     "preview": "vite preview"
   },

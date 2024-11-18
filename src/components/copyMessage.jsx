@@ -5,15 +5,19 @@ export default function CopyMessage({setShowCopyMessage}){
 
   useEffect(()=>{
     setTimeout(()=>{
-      setShowCopyMessage(false)
-    }, 500)
+      setActive(false);
+    }, 1000)
+
+    setTimeout(()=>{
+      setShowCopyMessage(false);
+    }, 1500)
+
+    setActive(true)
   }, [])
 
   return (
-    <div className="copy_mesage_modal">
-      <p className={`copy_message ${active && "active"}`}>
-          ¡Link copiado!
-      </p>
-    </div>
+    <p className={`copy_message ${active ? "active" : ""}`}>
+        ¡Link copiado!
+    </p>
   )
 }

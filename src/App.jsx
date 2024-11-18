@@ -1,49 +1,44 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import './styles/InvitationNotFound.css'
 
 import Card from "./components/card";
 import Invitations from './components/invitations';
+import InvitationNotFound from './components/invitationNotFound';
+
+import { getInvitationByCode } from './server/data';
 
 function App() {
-
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(()=>{
-    const setRemainigTime = () => {
-      const diferenciaMilisegundos = new Date('2025-04-05T17:00:00') - new Date();
-
-      setDays(Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24)));
-      setHours(Math.floor((diferenciaMilisegundos % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-      setMinutes(Math.floor((diferenciaMilisegundos % (1000 * 60 * 60)) / (1000 * 60)));
-      setSeconds(Math.floor((diferenciaMilisegundos % (1000 * 60)) / 1000));
-    }
-
-    const interval = setInterval(setRemainigTime, 1000)
-
-    return () => clearInterval(interval);
-  }, [])
+  const [invitation, setInvitation] = useState({});
 
   const params = new URLSearchParams(window.location.search);
-  const state = params.get("state");
   const code = params.get("code");
+  const state = params.get("state");
 
-  const confirmAssist = ()=>{
-
+  const loadInvitation = async () => {
+    const result = await getInvitationByCode(code);
+    setInvitation(result);
   }
 
+  useEffect(()=> {
+    loadInvitation();
+  }, [])
+
   return (
-    
     <>
-      { (!state || state === 'normal') &&
-        <Card confirmAssist={confirmAssist}></Card>
+      { (code === null || Object.keys(invitation).length === 0) &&
+        <InvitationNotFound />
+      }
+
+      { (!state && code !== null && Object.keys(invitation).length > 0) &&
+        <Card invitation={invitation} setInvitation={setInvitation}/>
       }
 
       { state === 'edit' && 
         <Invitations />
       }
+
+      
     </>
   )
 }

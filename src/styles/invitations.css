@@ -117,14 +117,17 @@ main{
     background-color: var(--blue);
     font-size: .9rem;
     border-radius: .6rem;
+    text-decoration: none;
+    color: var(--white);
+    text-align: center;
+}
+
+.green{
+    background-color: #25cc64;
 }
 
 .red{
     background-color: var(--red);
-}
-
-.register__data__button:nth-child(1){
-    grid-column: span 2;
 }
 
 /* Add invitation form */
@@ -144,7 +147,7 @@ main{
     width: calc(90% - 4rem);
     height: fit-content;
     padding: 2rem;
-    text-align: left;
+    text-align: center;
     border-radius: .7rem;
     position: relative;
     opacity: 0%;
@@ -158,6 +161,32 @@ main{
 .frame__title{
     font-size: 1.6rem;
     text-align: center;
+}
+
+.frame__text{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.frame__image{
+    width: 8rem;
+    margin: 0 auto;
+}
+
+.frame__button.message{
+    margin-top: 1rem;
+}
+
+.validation_text{
+    margin-top: 1rem;
+    background-color: var(--red);
+    opacity: 0;
+    border-radius: .5rem;
+    transition: opacity 500ms ease;
+}
+
+.validation_text.active{
+    opacity: 100%;
 }
 
 .frame__field{
@@ -212,7 +241,7 @@ main{
     outline: none;
     padding: .5rem;
     border-radius: .7rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .close_button{
@@ -225,17 +254,8 @@ main{
 }
 
 /* Copy Message */
-.copy_mesage_modal{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-}
-
 .copy_message{
-    position: relative;
+    position: absolute;
     left: calc(50% - 4.5rem);
     bottom: 2rem;
     background-color: rgba(0, 0, 0, .5);
@@ -243,4 +263,10 @@ main{
     color: white;
     width: 9rem;
     border-radius: .5rem;
+    opacity: 0%;
+    transition: opacity 500ms ease;
+}
+
+.copy_message.active{
+    opacity: 100%;
 }

@@ -1,26 +1,40 @@
-export default function Register({id, name, adults, children, status, code, deleteInvitation, setInvitationSelected, setShowModifyInvitation, setShowCopyMessage}){
+import { deleteInvitation } from "../server/data";
+
+export default function Register({invitation, setInvitationSelected, setShowUpdateInvitation, setShowCopyMessage}){
+  const handlerFunction = async (id) => {
+    const result = await deleteInvitation(id);
+
+    if(result.code === 1){
+      setMessageState('updated')
+    }
+
+    if(result.code === 0){
+      setMessageState('error')
+    }
+  }
+
   return (
     <div className="register">
       <div className="register__number">
         <h5 className="register__title">Para: </h5>
-        <p className="register__name">{name}</p>
+        <p className="register__name">{invitation.name}</p>
       </div>
       
 
       <div className="register__information">
         <div className="register__number">
           <h5 className="register__title">Adultos</h5>
-          <p className="register__adults">{adults}</p>
+          <p className="register__adults">{invitation.adults}</p>
         </div>
         
         <div className="register__number">
           <h5 className="register__title">Niños</h5>
-          <p className="register__childrens">{children}</p>
+          <p className="register__childrens">{invitation.children}</p>
         </div>
 
         <div className="register__number">
           <h5 className="register__title">Confirmó</h5>
-          <p className="register__childrens">{status === 1 ? 'Si' : 'No'}</p>
+          <p className="register__childrens">{invitation.state === 1 ? 'Si' : 'No'}</p>
         </div>
       </div>
       
@@ -28,18 +42,21 @@ export default function Register({id, name, adults, children, status, code, dele
         <button 
          className="register__data__button"
          onClick={()=>{
-          navigator.clipboard.writeText(`https://wedding-invitation-myk.netlify.app/?code=${code}`);
+          navigator.clipboard.writeText(`https://wedding-invitation-myk.netlify.app/?code=${invitation.code}`);
           setShowCopyMessage(true)
          }}
         >
-          copiar link de invitacion
+          copiar link
         </button>
+
+
+        <a href={`https://wa.me/?text=https://wedding-invitation-myk.netlify.app/?code=${invitation.code}`} target="_blank" className="register__data__button green">WhatsApp</a>
 
         <button 
           className="register__data__button"
           onClick={()=>{
-            setInvitationSelected(id);
-            setShowModifyInvitation(true);
+            setInvitationSelected(invitation.id);
+            setShowUpdateInvitation(true);
           }}
         >
           Editar
@@ -47,7 +64,7 @@ export default function Register({id, name, adults, children, status, code, dele
 
         <button 
           className="register__data__button red"
-          onClick={()=>{deleteInvitation(id)}}
+          onClick={()=>{handlerFunction(invitation.id)}}
         >
           Eliminar
         </button>

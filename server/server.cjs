@@ -13,10 +13,10 @@ app.get("/api/data", (req, res) => {
 });
 
 app.post("/api/data", (req, res) => {
-  const newData = req.body;
-  fs.writeFileSync(filePath, JSON.stringify(newData, null, 2), "utf8");
-  res.status(200).send("Datos guardados correctamente.");
+  const data = req.body;
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+  res.status(200).send("data saved correctly");
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
+const PORT = 10000;
+app.listen(PORT, () => console.log(`server runnig on http://localhost:${PORT}`));

@@ -1,72 +1,66 @@
 import { useEffect, useState } from "react"
 
-export default function InvitationForm({showAddInvitation, setShowAddInvitation, showModifyInvitation, setShowModifyInvitation, updateData, data, invitationSelected,setInvitationSelected, modifyInvitation}){
+import { getInvitations, updateInvitation } from "../server/data";
+
+export default function FormUpdateInvitation({showUpdateInvitation, setShowUpdateInvitation, invitationSelected, setInvitationSelected, setMessageState}){
   const [name, setName] = useState('');
   const [adultsNumber, setAdultsNumber] = useState(0);
   const [childrenNumber, setChildrenNumber] = useState(0);
   const [resultInvitation, setResultInvitation] = useState(0);
 
+  const [validationText, setValidationText] = useState('');
+
   const [show, setShow] = useState(false);
 
-  useEffect(()=>{
+  const loadInvitation = async () => {
+    const invitations = await getInvitations();
+
     if(invitationSelected !== 0){
-      const result = data.filter(invitation => invitation.id === invitationSelected)
+      const result = invitations.filter(invitation => invitation.id === invitationSelected)
       if(result.length > 0){
         setName(result[0].name);
         setAdultsNumber(result[0].adults);
         setChildrenNumber(result[0].children);
 
-        setResultInvitation(result[0])
+        setResultInvitation(result[0]);
       }
     }
-
-    console.log(invitationSelected)
-  }, [invitationSelected])
+  }
 
   useEffect(()=>{
-    if(showAddInvitation || showModifyInvitation){
+    if(showUpdateInvitation){
       setShow(true);
     }
   }, [])
 
+  useEffect(()=>{
+    loadInvitation();
+  }, [invitationSelected])
+
   const hideFrame = ()=>{
     setTimeout(()=>{
-      setShowAddInvitation(false);
-      setShowModifyInvitation(false);
+      setShowUpdateInvitation(false);
       setInvitationSelected(0);
     }, 500);
     setShow(false);
   }
 
-  function generateCode(lenght = 8) {
-    const values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let code = "";
-    
-    for (let i = 0; i < lenght; i++) {
-      const randomIndex = Math.floor(Math.random() * values.length);
-      code += values[randomIndex];
+  const handlerFunction = async () => {
+    if(name.length === 0){
+      setValidationText('ingrese el nombre')
+      return
     }
-    
-    return code;
-  }
-
-  const addInvitation = () => {
-    const newInvitation = {
-      id: data.length + 1,
-      name: name,
-      adults: parseInt(adultsNumber),
-      children: parseInt(childrenNumber),
-      state: 0,
-      code: generateCode(8)
+    if(!adultsNumber || adultsNumber <= 0){
+      setValidationText('la cantidad de adultos debe ser mayor o igual a cero')
+      return
     }
-    const newData = [...data, newInvitation];
+    if(childrenNumber < 0){
+      setValidationText('la cantidad de niños debe ser mayor o igual a cero')
+      return
+    }
 
-    updateData(newData);
+    setValidationText("")
 
-    hideFrame();
-  }
-
-  const changeInvitation = () => {
     const modifiedInvitation = {
       id: resultInvitation.id,
       name: name,
@@ -76,7 +70,16 @@ export default function InvitationForm({showAddInvitation, setShowAddInvitation,
       code: resultInvitation.code
     }
 
-    modifyInvitation(modifiedInvitation);
+    const result = await updateInvitation(modifiedInvitation);
+
+    console.log(result)
+    if(result.code === 1){
+      setMessageState('updated')
+    }
+
+    if(result.code === 0){
+      setMessageState('error')
+    }
 
     hideFrame();
   }
@@ -93,7 +96,7 @@ export default function InvitationForm({showAddInvitation, setShowAddInvitation,
           }}
         />
 
-        <h4 className="frame__title">Agregar invitacion</h4>
+        <h4 className="frame__title">Actualizar invitación</h4>
 
         <div className="frame__field">
           <label htmlFor="name">Para: </label>
@@ -132,9 +135,15 @@ export default function InvitationForm({showAddInvitation, setShowAddInvitation,
           </div>
         </div>
 
+        <p 
+          className={`validation_text ${validationText.length > 0 ? 'active' : ''}`}
+        >
+          {validationText}
+        </p>
+
         <button 
           className="frame__button"
-          onClick={()=>{  console.log(invitationSelected); if(invitationSelected === 0) {addInvitation()} else {changeInvitation()}}}
+          onClick={()=>{handlerFunction()}}
         >
           Guardar
         </button>

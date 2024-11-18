@@ -1,26 +1,85 @@
-[
-  {
-    "id": 4,
-    "name": "Marvin Orellana",
-    "adults": 3,
-    "children": 1,
-    "state": 0,
-    "code": "1OW9FHT9"
-  },
-  {
-    "id": 2,
-    "name": "Urias Ismael Flores Meza",
-    "adults": 1,
-    "children": 1,
-    "state": 0,
-    "code": "H2KROJE3"
-  },
-  {
-    "id": 3,
-    "name": "Daniel Orellana",
-    "adults": 1,
-    "children": 0,
-    "state": 0,
-    "code": "AZ65BMFT"
-  }
-]
+{
+  "invitations": [
+    {
+      "id": 5,
+      "name": "Mario Rivas",
+      "adults": 2,
+      "children": 1,
+      "state": 0,
+      "code": "IHMA8FLXF7"
+    },
+    {
+      "name": "Noe Mendoza",
+      "adults": 2,
+      "children": 1,
+      "state": 1,
+      "code": "6OF7EMN3S3",
+      "id": 6
+    },
+    {
+      "name": "Familia Benites",
+      "adults": 2,
+      "children": 1,
+      "state": 0,
+      "id": 10,
+      "code": "SX1PZYFL7I"
+    },
+    {
+      "name": "Azalia Flores",
+      "adults": 1,
+      "children": 0,
+      "state": 1,
+      "code": "LOE1OITK5Z",
+      "id": 11
+    },
+    {
+      "name": "Hotel Restaurante Venecia",
+      "adults": 3,
+      "children": 1,
+      "state": 0,
+      "code": "MTEG23SBPV",
+      "id": 12
+    },
+    {
+      "name": "Urias Flores Meza",
+      "adults": 1,
+      "children": 0,
+      "state": 0,
+      "code": "31PM57S40I",
+      "id": 13
+    },
+    {
+      "name": "Mauricio Pineda",
+      "adults": 2,
+      "children": 0,
+      "state": 0,
+      "code": "8WYPCYHCJW",
+      "id": 14
+    },
+    {
+      "name": "Rosa Linda Mendoza",
+      "adults": 1,
+      "children": 0,
+      "state": 0,
+      "code": "68OFEUKIK8",
+      "id": 15
+    },
+    {
+      "name": "Urias Flores",
+      "adults": 1,
+      "children": 1,
+      "state": 0,
+      "code": "0GOZY13GZO",
+      "id": 16
+    },
+    {
+      "name": "Arnaldo Garcia",
+      "adults": 2,
+      "children": 0,
+      "state": 0,
+      "code": "E149UW4309",
+      "id": 17
+    }
+  ],
+  "currentIndex": 18
+}

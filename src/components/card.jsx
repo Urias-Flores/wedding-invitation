@@ -1,25 +1,36 @@
 import { useState, useEffect } from "react";
 
-export default function Card({confirmAssist}){
+import { confirmInvitation } from "../server/data";
+
+export default function Card({invitation, setInvitation}){
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
 
     useEffect(()=>{
-        const setRemainigTime = () => {
-        const diferenciaMilisegundos = new Date('2025-04-05T17:00:00') - new Date();
+      const setRemainigTime = () => {
+      const diferenciaMilisegundos = new Date('2025-04-05T17:00:00') - new Date();
 
-        setDays(Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24)));
-        setHours(Math.floor((diferenciaMilisegundos % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        setMinutes(Math.floor((diferenciaMilisegundos % (1000 * 60 * 60)) / (1000 * 60)));
-        setSeconds(Math.floor((diferenciaMilisegundos % (1000 * 60)) / 1000));
-        }
+      setDays(Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24)));
+      setHours(Math.floor((diferenciaMilisegundos % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+      setMinutes(Math.floor((diferenciaMilisegundos % (1000 * 60 * 60)) / (1000 * 60)));
+      setSeconds(Math.floor((diferenciaMilisegundos % (1000 * 60)) / 1000));
+      }
 
-        const interval = setInterval(setRemainigTime, 1000)
+      const interval = setInterval(setRemainigTime, 1000)
 
-        return () => clearInterval(interval);
+      return () => clearInterval(interval);
     }, [])
+
+    const confirmAssist = async () => {
+      const result = await confirmInvitation(invitation.code);
+      if(result.code === 1){
+        const newInvitation = invitation;
+        newInvitation.state = 1;
+        setInvitation(newInvitation);
+      }
+    }
 
     return (
         <>
@@ -121,39 +132,55 @@ export default function Card({confirmAssist}){
               <span>M</span>
             </h2>
 
+            
+
             <div>
+              <h3 className='invitation__passestext'>Para:</h3>
+              <h4 className="invitation__passesname">{invitation.name}</h4>
+
               <h3 className='invitation__passestext'>Pases otorgados</h3>
 
               <div className='passes'>
                 <div className='pass__item'>
                   <img src="/adult.svg" alt="adult" className='pass__image'/>
                   <p className='pass__name'>Adultos</p>
-                  <p className='pass__number'>3</p>
+                  <p className='pass__number'>{invitation.adults}</p>
                 </div>
 
                 <div className='pass__item'>
                   <img src="/kid.svg" alt="kid" className='pass__image'/>
                   <p className='pass__name'>Niños</p>
-                  <p className='pass__number'>2</p>
+                  <p className='pass__number'>{invitation.children}</p>
                 </div>
               </div>
             </div>
 
             <div className='assist'>
-              <h3 className='assist__title'>Confirma tu asistencia</h3>
+              <h3 className='assist__title'>
+                { invitation.state === 1
+                  ? "Tu asistencia ha sido confirmada"
+                  : "Confirma tu asistencia"
+                }
+              </h3>
 
               <p className='assist__text'>
-                Para nosotros sera un gusto que puedas acompañarnos en este momento tan especial,  
-                si decides y tienes la posibilidad de hacerlo por favor confirma tu asistencia.
+                { invitation.state == 1
+                  ? "Gracias por hacerme saber que podras venir y acompañarnos en este dia tan especial."
+                  : "Para nosotros sera un gusto que puedas acompañarnos en este momento tan especial,  si decides y tienes la posibilidad de hacerlo por favor confirma tu asistencia."
+                }
               </p>
 
 
-              <input 
-                type="button" 
-                value="confirmar" 
-                onClick={()=>{confirmAssist()}} 
-                className="confirmbutton"
-              />
+              { invitation.state === 0 ?
+                <input 
+                  type="button" 
+                  value={invitation.state === 1 ? "cancelar" : "confirmar"}
+                  onClick={()=>{confirmAssist()}}
+                  className="confirmbutton"
+                /> :
+                <></>
+              }
+              
             </div>
           </section>
         </>

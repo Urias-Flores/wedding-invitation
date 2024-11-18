@@ -3,8 +3,12 @@ import { useEffect, useState } from "react";
 import "../styles/invitations.css"
 
 import Register from "./register";
-import InvitationForm from "./invitationForm";
+import FormAddInvitation from "./formAddInvitation";
+import FormUpdateInvitation from "./formUpdateInvitation";
+import Message from "./message";
 import CopyMessage from "./copyMessage";
+
+import { getInvitations } from "../server/data";
 
 export default function Invitations(){
   const [data, setData] = useState([]);
@@ -15,55 +19,26 @@ export default function Invitations(){
   const [adultsC, setAdultsC] = useState(0);
   const [childrenC, setChildrenC] = useState(0);
 
+  //Form
   const [showAddInvitation, setShowAddInvitation] = useState(false);
-  const [showModifyInvitation, setShowModifyInvitation] = useState(false);
+  const [showUpdateInvitation, setShowUpdateInvitation] = useState(false);
+
+  //Messages
+  const [messageState, setMessageState] = useState("hola");
   const [showCopyMessage, setShowCopyMessage] = useState(false);
+
   const [invitationSelected, setInvitationSelected] = useState(0);
 
   const [search, setSearch] = useState("");
 
-  const getData = async () => {
-    const response = await fetch(`/api/data`)
-    if(response.ok){
-      const invitations = await response.json();
-      setData(invitations);
-      setInvitations(invitations);
-    }
-  }
-  
-  const updateData = async (newData) => {
-    const response = await fetch(`/api/data`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newData)
-    })
-
-    if(response.ok){
-      getData();
-    }
-  }
-
-  const deleteInvitation = (id) => {
-    const result = data.filter(invitation => invitation.id != id)
-    updateData(result);
-  }
-
-  const modifyInvitation = (invitation) => {
-    const result = data.find(currentInvitation => currentInvitation.id === invitation.id);
-    
-    if(result){
-      result.name = invitation.name;
-      result.adults = invitation.adults;
-      result.children = invitation.children;
-    }
-    
-    updateData(data);
+  const loadData = async () =>{
+    const response = await getInvitations();
+    setData(response);
+    setInvitations(response);
   }
 
   useEffect(() => {
-    getData();
+    loadData();
   }, [])
 
   useEffect(()=>{
@@ -97,29 +72,20 @@ export default function Invitations(){
   return (
     <>
       { showAddInvitation &&
-        <InvitationForm
+        <FormAddInvitation
           showAddInvitation={showAddInvitation}
           setShowAddInvitation={setShowAddInvitation}
-          showModifyInvitation={showAddInvitation}
-          setShowModifyInvitation={setShowModifyInvitation}
-          updateData={updateData}
-          data={data}
-          invitationSelected={invitationSelected}
-          setInvitationSelected={setInvitationSelected}
+          setMessageState={setMessageState}
         />
       }
 
-      { showModifyInvitation &&
-        <InvitationForm
-          showAddInvitation={showAddInvitation}
-          setShowAddInvitation={setShowAddInvitation}
-          showModifyInvitation={showModifyInvitation}
-          setShowModifyInvitation={setShowModifyInvitation}
-          updateData={updateData}
-          data={data}
+      { showUpdateInvitation &&
+        <FormUpdateInvitation
+          showUpdateInvitation={showUpdateInvitation}
+          setShowUpdateInvitation={setShowUpdateInvitation}
           invitationSelected={invitationSelected}
           setInvitationSelected={setInvitationSelected}
-          modifyInvitation={modifyInvitation}
+          setMessageState={setMessageState}
         />
       }
 
@@ -127,6 +93,42 @@ export default function Invitations(){
         <CopyMessage
           setShowCopyMessage={setShowCopyMessage}
         ></CopyMessage>
+      }
+
+      { messageState === 'added' &&
+        <Message
+          reload={loadData}
+          setMessageState={setMessageState}
+          text={"Invitacion agregada correctamente"}
+          icon={"success"}
+        />
+      }
+
+      { messageState === 'updated' &&
+        <Message
+          reload={loadData}
+          setMessageState={setMessageState}
+          text={"Invitacion actualizada correctamente"}
+          icon={"success"}
+        />
+      }
+
+      { messageState === 'deleted' &&
+        <Message
+          reload={loadData}
+          setMessageState={setMessageState}
+          text={"Invitacion eliminada correctamente"}
+          icon={"delete"}
+        />
+      }
+
+      { messageState === 'error' &&
+        <Message
+          reload={loadData}
+          setMessageState={setMessageState}
+          text={"Ha ocurrido un error al realizar los cambios."}
+          icon={"error"}
+        />
       }
 
       <main>
@@ -158,7 +160,7 @@ export default function Invitations(){
             <p className="item__value">{children}</p>
           </div>
 
-          <h3 className="information__title">Invitaciones confrmadas</h3>
+          <h3 className="information__title">Invitaciones confirmadas</h3>
 
           <div className="information__item">
             <h4 className="item__title">Invitaciones</h4>
@@ -189,16 +191,11 @@ export default function Invitations(){
           { invitations.map(invitation => 
             <Register
               key={invitation.id}
-              id={invitation.id}
-              name={invitation.name}
-              adults={invitation.adults}
-              children={invitation.children}
-              status={invitation.state}
-              code={invitation.code}
+              invitation={invitation}
               setInvitationSelected={setInvitationSelected}
-              setShowModifyInvitation={setShowModifyInvitation}
-              deleteInvitation={deleteInvitation}
+              setShowUpdateInvitation={setShowUpdateInvitation}
               setShowCopyMessage={setShowCopyMessage}
+              setMessageState={setMessageState}
             />
           )}
         </div>
