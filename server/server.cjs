@@ -1,9 +1,15 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+
+app.use(cors({
+  origin: "https://wedding-invitation-myk.netlify.app",
+  methods: ["GET", "POST"],
+}));
 
 const filePath = path.join(__dirname, "data.json");
 
