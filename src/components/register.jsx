@@ -1,11 +1,11 @@
 import { deleteInvitation } from "../server/data";
 
-export default function Register({invitation, setInvitationSelected, setShowUpdateInvitation, setShowCopyMessage}){
+export default function Register({invitation, setInvitationSelected, setShowUpdateInvitation, setShowCopyMessage, setMessageState}){
   const handlerFunction = async (id) => {
     const result = await deleteInvitation(id);
 
     if(result.code === 1){
-      setMessageState('updated')
+      setMessageState('deleted')
     }
 
     if(result.code === 0){

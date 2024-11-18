@@ -26,15 +26,17 @@ export default function FormAddInvitation({showAddInvitation, setShowAddInvitati
 
   const handlerFunction = async () => {
 
+
+
     if(name.length === 0){
       setValidationText('ingrese el nombre')
       return
     }
-    if(!adultsNumber || adultsNumber <= 0){
+    if(!adultsNumber || parseInt(adultsNumber) <= 0){
       setValidationText('la cantidad de adultos debe ser mayor o igual a cero')
       return
     }
-    if(childrenNumber < 0){
+    if(parseInt(childrenNumber) < 0){
       setValidationText('la cantidad de niños debe ser mayor o igual a cero')
       return
     }
@@ -96,7 +98,7 @@ export default function FormAddInvitation({showAddInvitation, setShowAddInvitati
               placeholder="0" 
               id="adults"
               value={adultsNumber}
-              onChange={(e)=>{setAdultsNumber(parseInt(e.target.value))}}
+              onChange={(e)=>{setAdultsNumber(e.target.value)}}
             />
           </div>
           
@@ -107,7 +109,7 @@ export default function FormAddInvitation({showAddInvitation, setShowAddInvitati
               placeholder="0" 
               id="children"
               value={childrenNumber}
-              onChange={(e)=>{setChildrenNumber(parseInt(e.target.value))}}
+              onChange={(e)=>{setChildrenNumber(e.target.value)}}
             />
           </div>
         </div>

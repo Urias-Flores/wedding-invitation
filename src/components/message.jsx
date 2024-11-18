@@ -18,7 +18,7 @@ export default function Message({reload, setMessageState, text, icon}){
   const icons = {
     "success": "check.svg",
     "error": "error.svg",
-    "delete": "trash.svh",
+    "delete": "trash.svg",
   }
 
   return (

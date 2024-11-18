@@ -50,11 +50,11 @@ export default function FormUpdateInvitation({showUpdateInvitation, setShowUpdat
       setValidationText('ingrese el nombre')
       return
     }
-    if(!adultsNumber || adultsNumber <= 0){
+    if(!adultsNumber || parseInt(adultsNumber) <= 0){
       setValidationText('la cantidad de adultos debe ser mayor o igual a cero')
       return
     }
-    if(childrenNumber < 0){
+    if(parseInt(childrenNumber) < 0){
       setValidationText('la cantidad de niños debe ser mayor o igual a cero')
       return
     }
