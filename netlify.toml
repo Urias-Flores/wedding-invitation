@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://wedding-invitation-45fn.onrender.com/api/:splat"
+  to = "https://wedding-invitation-yufd.onrender.com/api/:splat"
   status = 200
