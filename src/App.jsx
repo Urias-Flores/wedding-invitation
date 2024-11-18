@@ -36,9 +36,7 @@ function App() {
 
       { state === 'edit' && 
         <Invitations />
-      }
-
-      
+      }      
     </>
   )
 }
