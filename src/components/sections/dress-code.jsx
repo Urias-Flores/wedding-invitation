@@ -45,6 +45,17 @@ export default function DressCode(){
       </div>
       
       <div className="dress-code__examples" ref={containerRef} onScroll={()=>{showPoints()}}>
+        <div className="example">
+          <img src="/dress-code/vh-9.jpeg" alt="vh-9" className="dress-code__image-example" id="-9"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vh-8.jpeg" alt="vh-8" className="dress-code__image-example" id="-8"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vh-7.jpeg" alt="vh-7" className="dress-code__image-example" id="-7"/>
+        </div>
 
         <div className="example">
           <img src="/dress-code/vh-6.jpg" alt="vh-6" className="dress-code__image-example" id="-6"/>
@@ -120,21 +131,50 @@ export default function DressCode(){
         </div>
 
         <div className="example">
-          <img src="/dress-code/vm-5.jpg" alt="vm-4" className="dress-code__image-example" id="5"/>
+          <img src="/dress-code/vm-5.jpg" alt="vm-5" className="dress-code__image-example" id="5"/>
         </div>
 
         <div className="example">
-          <img src="/dress-code/vm-7.jpg" alt="vm-4" className="dress-code__image-example" id="6"/>
+          <img src="/dress-code/vm-6.jpg" alt="vm-6" className="dress-code__image-example" id="6"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vm-7.jpg" alt="vm-7" className="dress-code__image-example" id="7"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vm-8.jpeg" alt="vm-8" className="dress-code__image-example" id="8"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vm-9.jpeg" alt="vm-9" className="dress-code__image-example" id="9"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vm-10.jpeg" alt="vm-10" className="dress-code__image-example" id="10"/>
+        </div>
+
+        <div className="example">
+          <img src="/dress-code/vm-11.jpeg" alt="vm-11" className="dress-code__image-example" id="11"/>
         </div>
       </div>
 
       <div className={`points-container${imageShowing !== 0 ? "--active" : ""}`}>
-        <div className={`point${imageShowing === 1 || imageShowing === -6 ? "--active" : ""}`}></div>
-        <div className={`point${imageShowing === 2 || imageShowing === -5 ? "--active" : ""}`}></div>
-        <div className={`point${imageShowing === 3 || imageShowing === -4 ? "--active" : ""}`}></div>
-        <div className={`point${imageShowing === 4 || imageShowing === -3 ? "--active" : ""}`}></div>
-        <div className={`point${imageShowing === 5 || imageShowing === -2 ? "--active" : ""}`}></div>
-        <div className={`point${imageShowing === 6 || imageShowing === -1 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 1 || imageShowing === -9 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 2 || imageShowing === -8 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 3 || imageShowing === -7 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 4 || imageShowing === -6 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 5 || imageShowing === -5 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 6 || imageShowing === -4 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 7 || imageShowing === -3 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 8 || imageShowing === -2 ? "--active" : ""}`}></div>
+        <div className={`point${imageShowing === 9 || imageShowing === -1 ? "--active" : ""}`}></div>
+        { imageShowing > 0 &&
+          <>
+            <div className={`point${imageShowing === 10 ? "--active" : ""}`}></div>
+            <div className={`point${imageShowing === 11 ? "--active" : ""}`}></div>
+          </>
+        }
       </div>
     </section>
   )
