@@ -59,7 +59,7 @@ export const addInvitation = async (invitation) => {
 
   invitation.code = generateCode(10);
   invitation.id = data.currentIndex;
-  const newInvitations = [...data.invitations, invitation];
+  const newInvitations = [invitation, ...data.invitations];
 
   data.invitations = newInvitations;
   data.currentIndex = data.currentIndex + 1;

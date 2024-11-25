@@ -89,7 +89,7 @@ export default function FormAddInvitation({showAddInvitation, setShowAddInvitati
         </div>
         
 
-        <label htmlFor="" className="amount__passes__title">Cantidad de pases</label>
+        <label className="amount__passes__title">Cantidad de pases</label>
         <div className="amount__passes">
           <div className="frame__field">
             <label htmlFor="adults">Adultos</label>

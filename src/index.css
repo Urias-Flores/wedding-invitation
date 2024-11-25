@@ -14,6 +14,7 @@
   --light-gray: rgb(156 163 175);
   --red: rgb(220 38 38);
   --blue: rgb(29 78 216);
+  --pink: rgb(209, 45, 156);
 
 
   font-synthesis: none;
@@ -125,6 +126,17 @@ section{
   font-family: "Merriweather", sans-serif;
 }
 
+.hidden{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .our-parents{
   font-size: 1.8rem;
 }
@@ -174,6 +186,140 @@ section{
   height: 11rem;
   border: 2px solid var(--champagne);
   border-radius: 1rem;
+}
+/* --------------------------------------------------------------------------------- */
+
+/* ---------------------- Fourth Section ------------------------------------------- */
+.dress-code{
+  justify-content: start;
+  gap: 1rem;
+  color: white;
+}
+
+.dress-code__titles h2{
+  font-family: 'Merriweather', sans-serif;
+  color: var(--champagne);
+}
+
+.dress-code__examples{
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  justify-content: space-between;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+}
+
+.dress-code__examples::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+
+.example{
+  flex: 0 0 calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+  margin-bottom: 1rem;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+  margin: 0 1rem 1rem 1rem;
+}
+
+.points-container, .points-container--active{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.points-container--active{
+  opacity: 1;
+}
+
+.point, .point--active{
+  width: .5rem;
+  height: .5rem;
+  background-color: var(--white);
+  opacity: 40%;
+  border-radius: .5rem;
+  transition: opacity 500ms ease;
+}
+
+.point--active{
+  opacity: 100%;
+}
+
+.example__buttons{
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.example__button--women, .example__button--men{
+  background-color: var(--blue);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.example__button--women{
+  background-color: var(--pink);
+}
+
+.example__button__image{
+  width: 1.8rem;
+  animation: moveSideToSide 1s ease-in-out infinite;
+}
+
+.example__button__text{
+  font-size: 1.3rem;
+}
+
+@keyframes moveSideToSide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.dress-code__icons{
+  display: flex;
+  gap: 1rem;
+}
+
+.dress-code__set{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+}
+
+.clothe{
+  width: 4rem;
+  padding: .5rem;
+  border-radius: 999px;
+  background-color: var(--light-gray);
+}
+
+.dress-code__image-example{
+  width: calc(100% - 2rem);
 }
 /* --------------------------------------------------------------------------------- */
 
