@@ -11,7 +11,7 @@ import Activities from "./sections/activities";
 import DressCode from "./sections/dress-code";
 import Gift from "./sections/gift";
 import Galery from "./sections/galery";
-import Last from "./sections/last";
+//import Last from "./sections/last";
 
 export default function Card({invitation, setInvitation}){
   const [showSpinner, setShowSpinner] = useState(false);
@@ -102,8 +102,6 @@ export default function Card({invitation, setInvitation}){
       </section>
 
       <Galery />
-
-      <Last />
     </>
   )
 }
