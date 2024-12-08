@@ -39,6 +39,9 @@ body{
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-58mOs2B6.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 main{
@@ -55,10 +58,35 @@ section{
   padding: 2rem 1.5rem;
 }
 
+section {
+  background-size: cover;
+  background-position: center;
+}
+
+section:nth-child(1) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-uzXGbsP6.jpeg");
+}
+
+section:nth-child(3) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-YsWrYsth.jpeg");
+}
+
+section:nth-child(4) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-lSPXB895.jpeg");
+}
+
+section:nth-child(6) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-4i0lcbgm.jpeg");
+}
+
+section:nth-child(8) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/last.jpeg");
+}
+
 /* ---------------------- First Section -------------------------------------------- */
 /* First Title */
 .names{
-  font-family: "Imperial Script";
+  font-family: "Imperial Script", sans-serif;
   font-size: 4rem;
   margin-top: 3rem;
 }
@@ -113,10 +141,12 @@ section{
 .verse{
   font-size: 1.1rem;
   margin-bottom: 3rem;
+  color: var(--white);
 }
 
 .verse span{
   font-weight: bold;
+  color: var(--champagne);
 }
 /* --------------------------------------------------------------------------------- */
 
@@ -220,15 +250,21 @@ section{
 
 .example{
   flex: 0 0 calc(100% - 2rem);
+  background-color: var(--white);
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 3rem;
-  margin-bottom: 1rem;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
   margin: 0 1rem 1rem 1rem;
+}
+
+.example.center{
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .points-container, .points-container--active{
@@ -237,6 +273,7 @@ section{
   justify-content: center;
   opacity: 0;
   transition: opacity 500ms ease;
+  z-index: 3;
 }
 
 .points-container--active{
@@ -257,11 +294,13 @@ section{
 }
 
 .example__buttons{
-  margin: 2rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: 100%;
+  width: 100%;
 }
 
 .example__button--women, .example__button--men{
@@ -272,6 +311,7 @@ section{
   align-items: center;
   gap: 1rem;
   text-decoration: none;
+  width: 9rem;
 }
 
 .example__button--women{
@@ -301,14 +341,14 @@ section{
 
 .dress-code__icons{
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .dress-code__set{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .8rem;
+  gap: 1.1rem;
 }
 
 .clothe{
@@ -320,6 +360,33 @@ section{
 
 .dress-code__image-example{
   width: calc(100% - 2rem);
+}
+/* --------------------------------------------------------------------------------- */
+
+/* ---------------------- Fourth Section ------------------------------------------- */
+.gift__title{
+  font-family: 'Merriweather', sans-serif;
+  font-size: 2rem;
+  margin: .3rem 0;
+}
+
+.gift__text{
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.gift__paragraph{
+  margin-top: 2rem;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.gift__img{
+  margin-top: 3rem;
+  width: 75px;
+  padding: 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--champagne);
 }
 /* --------------------------------------------------------------------------------- */
 
@@ -345,12 +412,12 @@ section{
   margin-top: 2rem;
 }
 
-.invitation__passestext{
+.invitation__passes-text{
   font-family: 'Merriweather', sans-serif;
   font-size: 1.4rem;
 }
 
-.invitation__passesname{
+.invitation__passes-name{
   font-family: 'Imperial Script', sans-serif;
   font-size: 2.7rem;
   margin-bottom: .5rem;
@@ -399,5 +466,68 @@ section{
   border: none;
   padding: .5rem 1rem;
   margin-top: 1.4rem;
+}
+/* --------------------------------------------------------------------------------- */
+
+/* ---------------------- Fourth Section ------------------------------------------- */
+.gallery__title{
+  font-family: 'Merriweather', sans-serif;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+.gallery__section{
+  position: relative;
+  background-image: var(--gray);
+}
+
+.gallery__filter{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(10px);
+  z-index: 1;
+}
+
+.gallery__container{
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  justify-content: space-between;
+  scroll-snap-type: x mandatory;
+  z-index: 2;
+}
+
+.gallery__container::-webkit-scrollbar{
+  display: none;
+}
+
+.gallery__item{
+  padding: 1rem;
+  flex: 0 0 calc(100% - 2rem);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.gallery__image{
+  width: 100%;
+}
+/* --------------------------------------------------------------------------------- */
+
+/* ---------------------- Fourth Section ------------------------------------------- */
+.last__verse{
+  color: var(--white);
+}
+
+.last__verse span{
+  color: var(--champagne);
+}
+
+.last__code-information{
+  font-size: .8rem;
+  margin-top: 12rem;
 }
 /* --------------------------------------------------------------------------------- */

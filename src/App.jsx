@@ -24,20 +24,22 @@ function App() {
     loadInvitation();
   }, [])
 
+  if((code === null || Object.keys(invitation).length === 0) && state !== 'edit'){
+    return (<InvitationNotFound />)
+  }
+
+  if(state !== "edit" && code !== null && Object.keys(invitation).length > 0){
+    return (<Card invitation={invitation} setInvitation={setInvitation}/>)
+  }
+
+  if(state === 'edit'){
+    return (<Invitations />)
+  }
+
   return (
-    <>
-      { ((code === null || Object.keys(invitation).length === 0) && state !== 'edit') &&
-        <InvitationNotFound />
-      }
-
-      { (state !== "edit" && code !== null && Object.keys(invitation).length > 0) &&
-        <Card invitation={invitation} setInvitation={setInvitation}/>
-      }
-
-      { state === 'edit' && 
-        <Invitations />
-      }      
-    </>
+    <main>
+      <section>No se encontro ningun componente</section>
+    </main>
   )
 }
 
