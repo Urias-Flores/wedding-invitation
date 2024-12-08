@@ -1,4 +1,4 @@
-export default function Last() {
+export default function Verse() {
   return (
     <section>
       <h1 className="names">
