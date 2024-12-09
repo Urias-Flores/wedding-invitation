@@ -13,7 +13,7 @@ export default function DressCode(){
       const containerWidth = container.offsetWidth;
       const elementWidth = centerElement.offsetWidth;
       const elementOffsetLeft = centerElement.offsetLeft;
-  
+
       container.scrollLeft = elementOffsetLeft - (containerWidth / 2) + (elementWidth / 2);
     }
   }, []);
@@ -25,7 +25,6 @@ export default function DressCode(){
     const containerLeft = containerRect.left;
     const containerRight = containerRect.right;
 
-    // Iterar sobre cada imagen
     examples.forEach(example => {
       const containerRect = example.getBoundingClientRect();
       if (
@@ -41,9 +40,9 @@ export default function DressCode(){
     <section className="dress-code">
       <div className="dress-code__titles">
         <h2>Vestimenta</h2>
-        <p>Si no tienes idea de como asistir a una boda en la playa aqui tienes algunos ejemplos :)</p>
+        <p>Si no tienes idea de como asistir a una boda en la playa aqui tienes algunos ejemplos</p>
       </div>
-      
+
       <div className="dress-code__examples" ref={containerRef} onScroll={()=>{showPoints()}}>
         <div className="example">
           <img src="/dress-code/vh-9.jpeg" alt="vh-9" className="dress-code__image-example" id="-9"/>

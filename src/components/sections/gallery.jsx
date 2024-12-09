@@ -2,7 +2,7 @@ import {useState} from "react";
 
 import AnimatedText from "../AnimatedText.jsx";
 
-export default function Galery() {
+export default function Gallery() {
   const [imageShowing, setImageShowing] = useState(1);
 
   const images = [

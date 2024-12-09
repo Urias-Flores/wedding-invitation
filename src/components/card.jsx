@@ -10,7 +10,7 @@ import OurParents from "./sections/ourParents";
 import Activities from "./sections/activities";
 import DressCode from "./sections/dress-code";
 import Gift from "./sections/gift";
-import Galery from "./sections/galery";
+import Gallery from "./sections/gallery.jsx";
 import Verse from "./sections/verse";
 
 export default function Card({invitation, setInvitation}){
@@ -101,7 +101,7 @@ export default function Card({invitation, setInvitation}){
         </div>
       </section>
 
-      <Galery />
+      <Gallery />
 
       <Verse />
     </>

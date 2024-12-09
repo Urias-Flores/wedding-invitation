@@ -8,7 +8,7 @@ export default function OurParents(){
 				className={"wedding-date"}
 			/>
 
-			<h3 className="our-parents">Nuestro padres</h3>
+			<h3 className="our-parents">Honrando a nuestros padres</h3>
 
 			<div className="parents">
 				<h4 className="parents__title">Novia</h4>
