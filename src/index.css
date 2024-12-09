@@ -223,7 +223,7 @@ section:nth-child(8) {
 
 /* ---------------------- Fourth Section ------------------------------------------- */
 .dress-code{
-  justify-content: start;
+  justify-content: center;
   gap: 1rem;
   color: white;
 }
@@ -237,7 +237,7 @@ section:nth-child(8) {
   display: flex;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   overflow-x: auto;
   scroll-behavior: smooth;
   justify-content: space-between;
@@ -252,12 +252,12 @@ section:nth-child(8) {
 
 .example{
   flex: 0 0 calc(100% - 2rem);
+  height: fit-content;
   background-color: var(--white);
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3rem;
+  padding: 1rem 0 3rem 0;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
@@ -267,6 +267,7 @@ section:nth-child(8) {
 .example.center{
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0);
+  justify-content: center;
 }
 
 .points-container, .points-container--active{
@@ -301,6 +302,7 @@ section:nth-child(8) {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
   height: 100%;
   width: 100%;
 }
