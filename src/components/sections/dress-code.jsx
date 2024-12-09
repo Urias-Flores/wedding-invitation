@@ -81,7 +81,7 @@ export default function DressCode(){
         </div>
 
         <div className="example center" ref={centerElementRef} id="0">
-          <h2 className="example__title dress-code__image-example" id="0">Dress Code</h2>
+          <h2 className="example__title dress-code__image-example" id="0">Código de vestimenta</h2>
           <div className="example__buttons">
             <a className="example__button--women" href="#1">
               <p className="example__button__text">Mujeres</p>
