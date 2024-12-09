@@ -18,7 +18,7 @@ export default function OurParents(){
 			<div className="parents">
 				<h4 className="parents__title">Novio</h4>
 				<p className="parents__name">José Manuel Aguilar Rivas</p>
-				<p className="parents__name">Fanny Yaquelin Flores Sauceda</p>
+				<p className="parents__name">Fanny Yaqueline Flores Sauceda</p>
 			</div>
 		</section>
 	)
