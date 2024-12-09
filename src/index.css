@@ -239,6 +239,7 @@ section:nth-child(8) {
   width: 100%;
   height: fit-content;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   justify-content: space-between;
   scroll-snap-type: x mandatory;
@@ -251,7 +252,7 @@ section:nth-child(8) {
 }
 
 .example{
-  flex: 0 0 calc(90% - 2rem);
+  flex: 0 0 calc(95% - 2rem);
   height: fit-content;
   background-color: var(--white);
   display: flex;
