@@ -1,4 +1,5 @@
 import AnimatedText from "../AnimatedText";
+import DownArrow from "../downarrow.jsx";
 
 export default function OurParents(){
 	return (
@@ -20,6 +21,8 @@ export default function OurParents(){
 				<p className="parents__name">José Manuel Aguilar Rivas</p>
 				<p className="parents__name">Fanny Yaqueline Flores Sauceda</p>
 			</div>
+
+			<DownArrow />
 		</section>
 	)
 }

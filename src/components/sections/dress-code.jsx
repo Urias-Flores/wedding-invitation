@@ -1,4 +1,5 @@
 import {useRef, useEffect, useState} from "react";
+import DownArrow from "../downarrow.jsx";
 
 export default function DressCode(){
   const containerRef = useRef(null);
@@ -175,6 +176,8 @@ export default function DressCode(){
           </>
         }
       </div>
+
+      <DownArrow />
     </section>
   )
 }

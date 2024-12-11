@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import "../styles/downarrow.css"
+import {useEffect, useRef, useState} from "react";
 
-const AnimatedText = ({text, className}) => {
+export default function DownArrow() {
   const elementRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setIsActive(true);
         }
       },
       { threshold: 1 }
@@ -26,13 +27,8 @@ const AnimatedText = ({text, className}) => {
   }, []);
 
   return (
-    <div
-      ref={elementRef}
-      className={`hidden ${isVisible ? "visible" : ""}`}
-    >
-      <h2 className={className}>{text}</h2>
+    <div ref={elementRef} className={`down-arrow${isActive ? "--active" : ""}`}>
+      <img src="/down-arrow.svg" alt="arrow" className="down-arrow-image"/>
     </div>
-  );
-};
-
-export default AnimatedText;
+  )
+}

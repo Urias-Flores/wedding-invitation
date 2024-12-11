@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-import AnimatedText from "../AnimatedText.jsx";
+import DownArrow from "../downarrow.jsx";
 
 export default function Gallery() {
   const [imageShowing, setImageShowing] = useState(1);
@@ -73,6 +73,8 @@ export default function Gallery() {
         <div className={`point${imageShowing === 8 ? "--active" : ""}`}></div>
         <div className={`point${imageShowing === 9 ? "--active" : ""}`}></div>
       </div>
+
+      <DownArrow />
     </section>
   )
 }

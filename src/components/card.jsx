@@ -12,6 +12,7 @@ import DressCode from "./sections/dress-code";
 import Gift from "./sections/gift";
 import Gallery from "./sections/gallery.jsx";
 import Verse from "./sections/verse";
+import DownArrow from "./downarrow.jsx";
 
 export default function Card({invitation, setInvitation}){
   const [showSpinner, setShowSpinner] = useState(false);
@@ -99,6 +100,8 @@ export default function Card({invitation, setInvitation}){
             </>
           }
         </div>
+
+        <DownArrow />
       </section>
 
       <Gallery />

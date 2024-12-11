@@ -1,4 +1,5 @@
 import AnimatedText from "../AnimatedText.jsx";
+import DownArrow from "../downarrow.jsx";
 
 export default function Gift(){
   return (
@@ -19,6 +20,8 @@ export default function Gift(){
 
         <img src="/gift.png" alt="gift" className="gift__img"/>
       </div>
+
+      <DownArrow />
     </section>
   )
 }

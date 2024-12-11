@@ -58,6 +58,7 @@ section{
   justify-content: center;
   gap: 1.7rem;
   padding: 2rem 1.5rem;
+  position: relative;
 }
 
 section {
@@ -116,6 +117,7 @@ section:nth-child(8) {
 .timer{
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .timer__element{
