@@ -1,21 +1,25 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import DownArrow from "../downarrow.jsx";
 
 export default function Gallery() {
   const [imageShowing, setImageShowing] = useState(1);
+  const [currentImage, setCurrentImage] = useState("/gallery/pro-O35zuOix.jpeg");
+  const [isFading, setIsFading] = useState(false);
 
   const images = [
-    "/galery/pro-O35zuOix.jpeg",
-    "/galery/pro-58mOs2B6.jpeg",
-    "/galery/pro-6N8T1Rh2.jpeg",
-    "/galery/pro-kN87OrZ7.jpeg",
-    "/galery/pro-IOoGM1Ed.jpeg",
-    "/galery/pro-tPEGhvnc.jpeg",
-    "/galery/pro-4i0lcbgm.jpeg",
-    "/galery/pro-uOq26Nxd.jpeg",
-    "/galery/pro-OU0BO64m.jpeg"
+    "/gallery/pro-O35zuOix.jpeg",
+    "/gallery/pro-58mOs2B6.jpeg",
+    "/gallery/pro-6N8T1Rh2.jpeg",
+    "/gallery/pro-kN87OrZ7.jpeg",
+    "/gallery/pro-IOoGM1Ed.jpeg",
+    "/gallery/pro-tPEGhvnc.jpeg",
+    "/gallery/pro-4i0lcbgm.jpeg",
+    "/gallery/pro-uOq26Nxd.jpeg",
+    "/gallery/pro-OU0BO64m.jpeg"
   ]
+
+  //images[imageShowing - 1]
 
   const showPoints = () => {
     const examples = document.querySelectorAll('.gallery__item');
@@ -35,18 +39,30 @@ export default function Gallery() {
     });
   }
 
+  useEffect(() => {
+    setIsFading(true);
+    const timeout = setTimeout(() => {
+      setCurrentImage(images[imageShowing - 1])
+      setIsFading(false);
+    }, 300)
+    return () => clearTimeout(timeout);
+  }, [imageShowing]);
+
+
   return (
     <section
       className="gallery__section"
     >
-      <div className="gallery__filter" style={
-        {
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[imageShowing - 1]})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          transition: "background 0.3s ease",
+      <div
+        className={`gallery__filter ${isFading ? "fading" : ""}`}
+        style={
+          {
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${currentImage})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }
         }
-      }></div>
+      ></div>
 
       <h1 className="gallery__title">¡Nuestra Galeria!</h1>
 

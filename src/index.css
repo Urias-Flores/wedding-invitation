@@ -40,7 +40,7 @@ body{
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-58mOs2B6.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/pro-58mOs2B6.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -67,23 +67,23 @@ section {
 }
 
 section:nth-child(1) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-uzXGbsP6.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/pro-uzXGbsP6.jpeg");
 }
 
 section:nth-child(3) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-YsWrYsth.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/pro-YsWrYsth.jpeg");
 }
 
 section:nth-child(4) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-lSPXB895.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/pro-lSPXB895.jpeg");
 }
 
 section:nth-child(6) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/pro-4i0lcbgm.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/pro-4i0lcbgm.jpeg");
 }
 
 section:nth-child(8) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/galery/last.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/last.jpeg");
 }
 
 /* ---------------------- First Section -------------------------------------------- */
@@ -486,7 +486,7 @@ section:nth-child(8) {
 
 .gallery__section{
   position: relative;
-  background-image: var(--gray);
+  background-color: var(--black);
 }
 
 .gallery__filter{
@@ -497,6 +497,12 @@ section:nth-child(8) {
   height: 100vh;
   filter: blur(10px);
   z-index: 1;
+  opacity: 1;
+  transition: opacity 900ms ease;
+}
+
+.gallery__filter.fading {
+  opacity: 0;
 }
 
 .gallery__container{
