@@ -53,7 +53,7 @@ main{
 }
 
 body::-webkit-scrollbar{
-  width: 10px;
+  width: 0px;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -62,11 +62,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #30303f;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 section{
   height: calc(100vh - 4rem);
+  width: calc(100% - 3rem);
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
