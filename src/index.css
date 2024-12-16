@@ -38,15 +38,31 @@ body{
   height: 100vh;
   padding: 0;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/gallery/pro-58mOs2B6.jpeg");
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 main{
   padding: 1rem;
+  background-color: #30303f;
+}
+
+body::-webkit-scrollbar{
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(180, 180, 150);
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #30303f;
 }
 
 section{
@@ -59,6 +75,12 @@ section{
   gap: 1.7rem;
   padding: 2rem 1.5rem;
   position: relative;
+}
+
+section.invitations-container{
+  scroll-snap-stop: normal;
+  scroll-behavior: auto;
+  scroll-snap-type: unset;
 }
 
 section {

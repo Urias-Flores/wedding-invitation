@@ -44,7 +44,7 @@ export default function Gallery() {
     const timeout = setTimeout(() => {
       setCurrentImage(images[imageShowing - 1])
       setIsFading(false);
-    }, 300)
+    }, 300);
     return () => clearTimeout(timeout);
   }, [imageShowing]);
 
@@ -64,7 +64,7 @@ export default function Gallery() {
         }
       ></div>
 
-      <h1 className="gallery__title">¡Nuestra Galeria!</h1>
+      <h1 className="gallery__title">¡Nuestra Galería!</h1>
 
       <div
         className="gallery__container"

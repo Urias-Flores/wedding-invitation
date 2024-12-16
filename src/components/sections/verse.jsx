@@ -8,7 +8,7 @@ export default function Verse() {
       </h1>
 
       <h3 className="last__verse">
-        Por encima de todo, vistance de amor que es el vinculo perfecto. <br/>
+        Por encima de todo, vistance de amor que es el vínculo perfecto. <br/>
         <span>Colosenses 3:14</span>
       </h3>
     </section>

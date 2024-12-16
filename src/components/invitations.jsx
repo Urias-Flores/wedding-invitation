@@ -134,9 +134,9 @@ export default function Invitations(){
       <main>
         <h2 className="title">Invitaciones</h2>
 
-        <input 
-          type="text" 
-          placeholder="buscar..." 
+        <input
+          type="text"
+          placeholder="buscar..."
           className="search"
           value={search}
           onChange={(e)=>{setSearch(e.target.value)}}
@@ -177,9 +177,9 @@ export default function Invitations(){
             <p className="item__value">{childrenC}</p>
           </div>
         </div>
-        
+
         <div className="actions">
-          <button 
+          <button
             className="action__button"
             onClick={()=>{setShowAddInvitation(true)}}
           >
@@ -188,7 +188,7 @@ export default function Invitations(){
         </div>
 
         <div className="registers">
-          { invitations.map(invitation => 
+          { invitations.map(invitation =>
             <Register
               key={invitation.id}
               invitation={invitation}
