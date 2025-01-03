@@ -19,14 +19,14 @@ export default function Register({invitation, setInvitationSelected, setShowUpda
         <h5 className="register__title">Para: </h5>
         <p className="register__name">{invitation.name}</p>
       </div>
-      
+
 
       <div className="register__information">
         <div className="register__number">
           <h5 className="register__title">Adultos</h5>
           <p className="register__adults">{invitation.adults}</p>
         </div>
-        
+
         <div className="register__number">
           <h5 className="register__title">Niños</h5>
           <p className="register__childrens">{invitation.children}</p>
@@ -37,12 +37,12 @@ export default function Register({invitation, setInvitationSelected, setShowUpda
           <p className="register__childrens">{invitation.state === 1 ? 'Si' : 'No'}</p>
         </div>
       </div>
-      
+
       <div className="register__actions">
-        <button 
+        <button
          className="register__data__button"
          onClick={()=>{
-          navigator.clipboard.writeText(`https://wedding-invitation-myk.netlify.app/?code=${invitation.code}`);
+          navigator.clipboard.writeText(`https://invitacion-boda-kenneth-madai.netlify.app/?code=${invitation.code}`);
           setShowCopyMessage(true)
          }}
         >
@@ -50,9 +50,15 @@ export default function Register({invitation, setInvitationSelected, setShowUpda
         </button>
 
 
-        <a href={`https://wa.me/?text=https://wedding-invitation-myk.netlify.app/?code=${invitation.code}`} target="_blank" className="register__data__button green">WhatsApp</a>
+        <a
+          href={`https://wa.me/?text=https://invitacion-boda-kenneth-madai.netlify.app/?code=${invitation.code}`}
+          target="_blank"
+          className="register__data__button green"
+        >
+          WhatsApp
+        </a>
 
-        <button 
+        <button
           className="register__data__button"
           onClick={()=>{
             setInvitationSelected(invitation.id);
@@ -62,7 +68,7 @@ export default function Register({invitation, setInvitationSelected, setShowUpda
           Editar
         </button>
 
-        <button 
+        <button
           className="register__data__button red"
           onClick={()=>{handlerFunction(invitation.id)}}
         >
