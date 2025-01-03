@@ -112,8 +112,9 @@ section:nth-child(8) {
 /* First Title */
 .names{
   font-family: "Imperial Script", sans-serif;
-  font-size: 4rem;
-  margin-top: 3rem;
+  font-size: 3.7rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .names__title{
@@ -148,7 +149,8 @@ section:nth-child(8) {
 }
 
 .timer__element p:nth-child(1){
-  font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.4rem;
   padding: 0.5rem 0;
 }
 
@@ -160,13 +162,11 @@ section:nth-child(8) {
 /* we wedding title */
 .wewedding{
   font-family: 'Merriweather', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
 }
 
 .verse{
   font-size: 1.1rem;
-  margin-bottom: 3rem;
   color: var(--white);
 }
 
@@ -427,28 +427,29 @@ section:nth-child(8) {
 .invitation__title{
   font-family: "Imperial Script", sans-serif;
   color: var(--champagne);
-  font-size: 5rem;
+  font-size: 4rem;
   display: flex;
   justify-content: center;
-  height: calc(fit-content + 2rem);
+  align-items: center;
+  height: fit-content;
 }
 
 .invitation__title span:nth-child(1){
-  margin-top: -2rem;
+  margin: -1rem 1rem 2rem 0;
 }
 
 .invitation__title span:nth-child(3){
-  margin-top: 2rem;
+  margin: 2rem 0 -1rem 0;
 }
 
 .invitation__passes-text{
   font-family: 'Merriweather', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 
 .invitation__passes-name{
   font-family: 'Imperial Script', sans-serif;
-  font-size: 2.7rem;
+  font-size: 2.3rem;
   margin-bottom: .5rem;
 }
 
@@ -466,27 +467,27 @@ section:nth-child(8) {
 }
 
 .pass__image{
-  width: 1.9rem;
+  width: 1.6rem;
 }
 
 .pass__name{
-  font-size: 1.1rem;
+  font-size: .8rem;
 }
 
 .pass__number{
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: var(--champagne);
   font-weight: bold;
   margin-top: .4rem;
 }
 
 .assist__title{
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 
 .assist__text{
   font-size: 1rem;
-  margin-top: 1.2rem;
+  margin-top: .25rem;
 }
 
 .confirmbutton{
@@ -494,8 +495,8 @@ section:nth-child(8) {
   background-color: var(--champagne);
   color: white;
   border: none;
-  padding: .5rem 1rem;
-  margin-top: 1.4rem;
+  padding: .4rem 1rem;
+  margin-top: 1rem;
 }
 /* --------------------------------------------------------------------------------- */
 
